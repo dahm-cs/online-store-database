@@ -20,30 +20,13 @@ The database (`OnlineStoreDB`) has three tables:
 - One product can appear in many orders (`Orders.product_id` → `Products.product_id`).
 - Deleting a customer or a product also deletes their orders (`ON DELETE CASCADE`).
 
-```mermaid
-erDiagram
-    Customers ||--o{ Orders : places
-    Products  ||--o{ Orders : "ordered in"
-    Customers {
-        int customer_id PK
-        varchar customer_name
-        varchar email UK
-        varchar phone
-    }
-    Products {
-        int product_id PK
-        varchar product_name
-        decimal price
-        int stock
-    }
-    Orders {
-        int order_id PK
-        int customer_id FK
-        int product_id FK
-        date order_date
-        int quantity
-    }
-```
+### ER diagram
+
+![ER diagram](diagrams/er-diagram.jpg)
+
+### Relational schema
+
+![Relational schema](diagrams/relational-schema.jpg)
 
 Each table is filled with 5 sample records.
 
